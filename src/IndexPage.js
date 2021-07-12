@@ -8,9 +8,11 @@ import {
 } from 'react-native';
 import {Colors} from '../node_modules/react-native/Libraries/NewAppScreen'
 import RootSiblings from "react-native-root-siblings"
+import CommonModal from './modal/CommonModal';
+import FirstModal from './modals/FirstModal';
 var id = 0;
 var elements = [];
-const IndexPage = () => {
+const IndexPage = (props) => {
   const addSibling = () => {
     let sibling = new RootSiblings(
       (
@@ -39,9 +41,13 @@ const IndexPage = () => {
         </View>,
       );
   };
+
+
+
+
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <View style={styles.container}>
+      {/* <View style={styles.container}>
         <TouchableHighlight style={styles.button} onPress={addSibling}>
           <Text style={styles.buttonText}>Add element</Text>
         </TouchableHighlight>
@@ -51,7 +57,14 @@ const IndexPage = () => {
         <TouchableHighlight style={styles.button} onPress={updateSibling}>
           <Text style={styles.buttonText}>Update element</Text>
         </TouchableHighlight>
-      </View>
+      </View> */}
+       <TouchableHighlight style={styles.button} onPress={()=>{
+         console.log(props)
+         props.navigation.navigate('ThridPage')
+        // CommonModal.show(<FirstModal/>)
+       }}>
+          <Text style={styles.buttonText}>thrid</Text>
+        </TouchableHighlight>
     </View>
   );
 };
